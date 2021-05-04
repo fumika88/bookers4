@@ -1,0 +1,24 @@
+<h2>投稿詳細</h2>
+<div style="border: 1px solid black;margin: 2% 0;padding: 3%;">
+    <%= attachment_image_tag @post,:image,style: 'width: 40%;' %>
+    <div style="border-bottom: 1px solid">
+        <p style="color: red">title</p>
+        <%= @post.title %>
+    </div>
+    <div>
+        <p style="color: red">caption</p>
+        <p>
+            <%= @display_caption %><br>
+            <% if @hashtags.present? %>
+                <% @hashtags.each do |hashtag| %>
+                    <%= link_to "##{hashtag.name}", hashtag_path(hashtag.id) %>
+                <% end %>
+            <% end %>
+        <p>
+    </div>
+    <div>
+    <%= link_to "編集", edit_post_path(id: @post.id) %>
+    <%= link_to "削除", post_path(id: @post.id),method: :delete %>
+
+    </div>
+</div>

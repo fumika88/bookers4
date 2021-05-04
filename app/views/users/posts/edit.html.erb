@@ -1,0 +1,14 @@
+<h1>投稿の編集</h1>
+
+<%= form_with model:@post, local: true do |f| %>
+    <div>
+        <p>画像を選択</p>
+        <%= f.attachment_field :image %>
+        <p>タイトル入力</p>
+        <%= f.text_field :title %>
+        <br>
+        <p>投稿内容入力</p>
+        <%= f.text_area :caption, size:"55x12" %>
+        <%= f.submit "更新" ,class:'postimage-new-button' %>
+    </div>
+<% end %>
